@@ -1,11 +1,10 @@
 import statistics
 def window_max(data: list, n: int) -> list:
     maximums = []
-    for i in range(0, len(data) - n + 1, n):
-        window = data[i:i + n]
-        maximums.append(max(window))
+    for i in range(0, len(data), n):  # Increment by n for non-overlapping windows
+        maximums.append(max(data[i:i + n]))  # Simplified slicing
     return maximums
-    """
+"""
     Calculate maximum value of every "n"-size window
 
     Args:
@@ -16,18 +15,18 @@ def window_max(data: list, n: int) -> list:
     """
 def window_average(data: list, n: int) -> list:
     averages = []
-    for i in range(0, len(data) - n + 1, n):
-        window = data[i:i + n]
-        averages.append(statistics.mean(window))
+    for i in range(0, len(data), n):
+        averages.append(statistics.mean(data[i:i + n]))
     return averages
 
 def window_stddev(data: list, n: int) -> list:
-    stdevs = []
-    for i in range(0, len(data) - n + 1, n):
+    stddevs = []
+    if not data or n <= 0: 
+        return stddevs
+
+    for i in range(0, len(data), n):
         window = data[i:i + n]
         if len(window) > 1:
-            stdev = statistics.stdev(window)
-            stdevs.append(round(stdev, 2))  # Round to 2 decimal places
-        else:
-            stdevs.append([])
-    return stdevs
+            stddev = statistics.stdev(window)
+            stddevs.append(round(stddev, 2))  # Round to two decimal places
+    return stddevs
