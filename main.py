@@ -33,11 +33,45 @@ def run(filename: str) -> None:
     data = []
 
     # open file and read into the `data` list
-    ...
-
     # return all 3 lists
-    ...
+    with open(filename, 'r') as file:
+        for line in file:
+            data.append(line.strip())
+
+    # clean data using provided functions
+    filtered_data_digits = filter_nondigits(data)
+    filtered_data = filter_outliers(filtered_data_digits)
+
+    if not filtered_data:  # Handle empty data after filtering
+        return [], [], []
 
 
+    # convert to int for metrics calculations after filtering for empty data
+    int_data = [int(x) for x in filtered_data]
+
+    maximums = window_max(int_data, 5)
+    averages = window_average(int_data, 5)
+    stdevs = window_stddev(int_data, 5)
+
+    # create the "images" directory if it doesn't exist
+    import os
+    os.makedirs("images", exist_ok=True)
+
+
+    plt.plot(maximums)
+    plt.title('Rolling Maximums')
+    plt.savefig('images/maximums.png')
+    plt.clf()  # Clear the current figure
+
+    plt.plot(averages)
+    plt.title('Rolling Averages')
+    plt.savefig('images/averages.png')
+    plt.clf()
+
+    plt.plot(stdevs)
+    plt.title('Rolling Standard Deviations')
+    plt.savefig('images/stdevs.png')
+    plt.clf()
+    return maximums, averages, stdevs
 if __name__ == "__main__":
-    run("data/data1.txt")
+    filename = "data/data1.txt"
