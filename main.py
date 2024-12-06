@@ -62,9 +62,9 @@ def run(filename: str) -> None:
    int_data = [int(x) for x in filtered_data]
 
 
-   maximums = window_max(int_data, 5)
-   averages = window_average(int_data, 5)
-   stdevs = window_stddev(int_data, 5)
+   maximums = window_max(int_data, 6)
+   averages = window_average(int_data, 6)
+   stdevs = window_stddev(int_data, 6)
 
 
    # create the "images" directory if it doesn't exist

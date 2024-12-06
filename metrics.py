@@ -2,7 +2,7 @@ import statistics
 def window_max(data: list, n: int) -> list:
     maximums = []
     for i in range(0, len(data), n):  # Increment by n for non-overlapping windows
-        maximums.append(max(data[i:i + n]))  # Simplified slicing
+        maximums.append(round(max(data[i:i + n]), 2))
     return maximums
 """
     Calculate maximum value of every "n"-size window
@@ -16,7 +16,7 @@ def window_max(data: list, n: int) -> list:
 def window_average(data: list, n: int) -> list:
     averages = []
     for i in range(0, len(data), n):
-        averages.append(statistics.mean(data[i:i + n]))
+        averages.append(round(statistics.mean(data[i:i + n]), 2))
     return averages
 
 def window_stddev(data: list, n: int) -> list:
