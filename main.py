@@ -9,7 +9,7 @@ from cleaner import filter_nondigits, filter_outliers
 
 
 import matplotlib.pyplot as plt
-
+import os
 
 
 
@@ -59,16 +59,13 @@ def run(filename: str) -> None:
 
 
    # convert to int for metrics calculations after filtering for empty data
-   int_data = [int(x) for x in filtered_data]
 
-
-   maximums = window_max(int_data, 6)
-   averages = window_average(int_data, 6)
-   stdevs = window_stddev(int_data, 6)
+   maximums = window_max(filtered_data, 6)
+   averages = window_average(filtered_data, 6)
+   stdevs = window_stddev(filtered_data, 6)
 
 
    # create the "images" directory if it doesn't exist
-   import os
    os.makedirs("images", exist_ok=True)
 
 
