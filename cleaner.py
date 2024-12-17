@@ -29,6 +29,6 @@ def filter_outliers(data: list) -> list:
     """
     filtered_data = []
     for heart_rate in data:
-      if 30 < heart_rate < 250:
-         filtered_data.append(heart_rate)
+        if 30 < heart_rate < 250:
+            filtered_data.append(heart_rate)
     return filtered_data
