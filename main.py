@@ -55,11 +55,6 @@ def run(filename: str) -> None:
    if not filtered_data:  # Handle empty data after filtering
        return [], [], []
 
-
-
-
-   # convert to int for metrics calculations after filtering for empty data
-
    maximums = window_max(filtered_data, 6)
    averages = window_average(filtered_data, 6)
    stdevs = window_stddev(filtered_data, 6)
