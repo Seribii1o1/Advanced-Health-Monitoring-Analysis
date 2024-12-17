@@ -8,7 +8,7 @@ Take a look at the file labeled `data/data2.txt`. Why might we have missing valu
 
 While the "averages.png" and "maximums.png" graphs visualize typical values in our time-series data of heart rates and subsequently describe similar trends, the "stdevs.png" graph visualizes the standard deviations, which results in a graph with less apparent trends. In the context of heart rate, what does the standard deviation describe?
 
-[The standard deviation describes of the variability from the heart rate data averages.] 
+[The standard deviation describes of the variability from the heart rate data averages. For example, sometimes heart rate can be faster or slower.] 
 
 ## Question 3
 
@@ -20,4 +20,4 @@ Run your `main.py` module and look at the graph labeled "averages.png." Roughly 
 
 Do you also notice a corresponding difference in values in the "stdevs.png" graph? If so, do these differences align with the "averages.png" graph? 
 
-[Yes and yes.]
+[Yes, drastic increase at x = 10 and drastic decrease at x = 30. These major differences do align with the averages.png graph. The stdevs.png graph has more peaks and valleys overall.]
